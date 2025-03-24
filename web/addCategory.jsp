@@ -11,12 +11,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
-            /* Thiết lập chung */
             body {
                 margin: 0;
                 font-family: 'Roboto', sans-serif;
-                background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-                color: #333; /* Màu chữ tối nhẹ */
+                background-color: #f7f9fc; 
+                color: #333; 
                 padding: 20px;
             }
 
@@ -31,7 +30,7 @@
             /* Bảng */
             table {
                 width: 100%;
-                max-width: 500px; /* Giới hạn chiều rộng bảng */
+                max-width: 500px; 
                 border-collapse: collapse;
                 background-color: #ffffff;
                 border-radius: 10px;

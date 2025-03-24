@@ -11,19 +11,19 @@
         <style>
             .user-menu {
                 display: flex;
-                justify-content: right; /* C?n gi?a các m?c */
-                background-color: #FFFFFF; /* Màu n?n xám nh?t (tùy ch?n) */
-                padding: 0 10px; /* Kho?ng cách trên và d??i */
+                justify-content: right; 
+                background-color: #FFFFFF; 
+                padding: 0 10px; 
                 border: black solid 1px;
             }
             .user-menu a {
-                padding: 15px 30px; /* Kho?ng cách trong m?i m?c */
-                text-decoration: none; /* Lo?i b? g?ch chân liên k?t */
-                color: #333; /* Màu ch? */
+                padding: 15px 30px; 
+                text-decoration: none; 
+                color: #333; 
                 border-left: black solid 1px;
             }
             .user-menu a:hover {
-                background-color: #ddd; /* Màu n?n khi di chu?t qua (tùy ch?n) */
+                background-color: #ddd; 
             }
         </style>
     </head>

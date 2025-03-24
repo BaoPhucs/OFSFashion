@@ -13,8 +13,8 @@
             body {
                 margin: 0;
                 font-family: 'Roboto', sans-serif;
-                background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-                color: #333; /* Màu chữ tối nhẹ */
+                background-color: #f7f9fc; 
+                color: #333; 
                 padding: 20px;
             }
 
@@ -32,8 +32,8 @@
                 padding: 25px;
                 border-radius: 10px;
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-                max-width: 500px; /* Giới hạn chiều rộng form */
-                margin: 0 auto; /* Căn giữa form */
+                max-width: 500px; 
+                margin: 0 auto; 
             }
 
             /* Nhãn và ô nhập liệu */
@@ -54,7 +54,7 @@
                 color: #333;
                 font-size: 14px;
                 width: 100%;
-                box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+                box-sizing: border-box; 
                 transition: border-color 0.3s ease;
             }
 
@@ -77,7 +77,7 @@
                 cursor: pointer;
                 transition: background-color 0.3s ease;
                 margin-top: 20px;
-                width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+                width: 100%; 
             }
 
             button[type="submit"]:hover {

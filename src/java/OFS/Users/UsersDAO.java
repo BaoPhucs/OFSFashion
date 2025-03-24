@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import dal.DBContext;
-import java.sql.Connection;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -179,7 +178,6 @@ public class UsersDAO extends DBContext {
         return false;
     }
 
-    // Tìm kiếm người dùng với phân trang
     public List<UsersDTO> searchUsersWithPagination(String keyword, int offset, int limit) {
         List<UsersDTO> users = new ArrayList<>();
 
@@ -228,7 +226,6 @@ public class UsersDAO extends DBContext {
         return users;
     }
 
-    // Đếm tổng số người dùng tìm thấy
     public int getTotalSearchUsers(String keyword) {
         String sql = "SELECT COUNT(*) "
                 + "FROM users "

@@ -211,14 +211,13 @@ public class ProductMgtController extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getParameter("action");
         ProductDAO productDAO = new ProductDAO();
-        InventoryLogDAO inventoryLogDAO = new InventoryLogDAO(); // Thêm InventoryLogDAO
+        InventoryLogDAO inventoryLogDAO = new InventoryLogDAO(); 
 
         if (action == null) {
             response.sendRedirect("productmanagement.jsp");
             return;
         }
 
-        // Kiểm tra đăng nhập của admin
         HttpSession session = request.getSession();
         UsersDTO admin = (UsersDTO) session.getAttribute("account");
         if (admin == null) {
@@ -320,7 +319,7 @@ public class ProductMgtController extends HttpServlet {
                         int variantId = productDAO.insertProductVariant(variant);
                         if (variantId == -1) {
                             allSuccess = false;
-                            continue; // Bỏ qua nếu không thêm được biến thể
+                            continue; 
                         }
 
                         // Ghi log vào inventory_logs

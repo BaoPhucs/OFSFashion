@@ -92,7 +92,7 @@ public class OrderDetailsController extends HttpServlet {
 
         ProductDAO productDAO = new ProductDAO();
         for (OrderItem item : orderItems) {
-            int productId = item.getVariantId().getProduct().getProductId(); // Lấy productId từ ProductVariant
+            int productId = item.getVariantId().getProduct().getProductId(); 
             List<ProductImages> images = productDAO.getProductImagesByProductId(productId);
             if (!images.isEmpty()) {
                 request.setAttribute("firstImage_" + productId, images.get(0).getImageUrl());

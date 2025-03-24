@@ -24,7 +24,7 @@
                 border-bottom: black solid 1px;
                 width: 100%;
                 padding-bottom: 10px;
-                margin-bottom: 30px; /* Tạo khoảng cách với form */
+                margin-bottom: 30px; 
             }
 
             .main-page a {
@@ -140,7 +140,7 @@
 
             <form action="register" method="POST">
                 <div class="form-content">
-                    <!-- Cột trái -->
+                  
                     <div class="form-column">
                         <div class="form-group">
                             <label for="firstName">First Name *</label>
@@ -156,7 +156,7 @@
                         </div>
                     </div>
 
-                    <!-- Cột phải -->
+                  
                     <div class="form-column">
                         <div class="form-group">
                             <label for="password">Password *</label>
@@ -186,7 +186,7 @@
                 <span>Already have an account?</span> <a href="login.jsp">Login here</a>
             </div>
 
-            <!-- Modal Bootstrap -->
+            
             <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -205,7 +205,7 @@
             </div>
         </div>
 
-        <!-- Thêm Bootstrap JS và jQuery -->
+       
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script>

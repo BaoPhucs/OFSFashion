@@ -7,7 +7,7 @@ body {
     overflow-x: hidden;
 }
 a {
-    text-decoration: none; /* Bỏ gạch chân mặc định cho tất cả thẻ <a> */
+    text-decoration: none; 
 }
 
 /* HEADER */
@@ -18,7 +18,6 @@ a {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #e0e0e0;
-/*    width: 100%;*/
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
 }
@@ -55,18 +54,17 @@ a {
 
 /* HEADER TITLE (Centered) */
 .an-header-title {
-    text-decoration: none; /* Bỏ gạch chân cho logo */
+    text-decoration: none; 
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     font-size: 30px;
     font-weight: bold;
     margin: 0;
-/*    text-align: center;*/
 }
 
 .an-header-title a {
-    text-decoration: none; /* Đảm bảo logo không có gạch chân */
+    text-decoration: none; 
     color: black;
 }
 
@@ -129,9 +127,9 @@ a {
 /* PRODUCT GRID */
 .an-product-grid {
     display: grid;
-    grid-template-columns: repeat(4, 350px); /* Luôn có 4 cột, mỗi cột rộng 250px */
+    grid-template-columns: repeat(4, 350px); 
     gap: 20px;
-    justify-content: center; /* Căn giữa nếu màn hình lớn */
+    justify-content: center; 
     padding: 10px;
     max-width: 100%;
 }
@@ -145,7 +143,7 @@ a {
     border-radius: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
     width: 100%;
-    width: 330px; /* Cố định chiều rộng */
+    width: 330px; 
 }
 
 .an-product-item:hover {
@@ -160,16 +158,16 @@ a {
 }
 
 .an-product-name {
-    text-decoration: none !important; /* Bỏ gạch chân và ưu tiên */
-    font-size: 18px; /* Tăng kích thước chữ */
+    text-decoration: none !important; 
+    font-size: 18px; 
     font-weight: bold;
     color: black;
-    display: block; /* Đảm bảo hành vi block */
+    display: block; 
 }
 
 .an-product-item a {
-    text-decoration: none !important; /* Bỏ gạch chân cho thẻ <a> bên trong */
-    color: inherit; /* Kế thừa màu từ .an-product-name */
+    text-decoration: none !important; 
+    color: inherit; 
 }
 
 .product-item .wishlist-icon {
@@ -190,8 +188,8 @@ a {
 }
 /* FOOTER */
 footer {
-    background-color: white; /* Giữ nguyên màu nền */
-    color: black; /* Giữ nguyên màu chữ */
+    background-color: white; 
+    color: black; 
     padding: 2rem 0;
     border-top: 1px solid #e5e5e5;
     font-size: 14px;
@@ -201,7 +199,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cột linh hoạt */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 200px;
     padding: 0 1.5rem;
     text-align: left;
@@ -229,7 +227,7 @@ footer {
 
 .footer-section a:hover {
     text-decoration: underline;
-    transform: scale(1.05); /* Hiệu ứng phóng to nhẹ khi hover */
+    transform: scale(1.05); 
 }
 
 .footer-right {
@@ -262,7 +260,7 @@ footer {
     }
 
     .an-product-grid {
-        grid-template-columns: repeat(4, 200px); /* Thu nhỏ lại nhưng vẫn giữ 4 cột */
+        grid-template-columns: repeat(4, 200px); 
         gap: 15px;
     }
 

@@ -34,8 +34,8 @@
             body {
                 margin: 0;
                 font-family: 'Roboto', sans-serif;
-                background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-                color: #333; /* Màu chữ tối nhẹ */
+                background-color: #f7f9fc;
+                color: #333;
             }
 
             /* Bố cục Dashboard */
@@ -49,14 +49,14 @@
                 width: 260px;
                 background-color: #ffffff;
                 padding: 30px 20px;
-                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); 
                 transition: width 0.3s ease;
             }
 
             .sidebar .logo {
                 font-size: 26px;
                 font-weight: 700;
-                color: #2c3e50; /* Màu xanh đậm nhã nhặn */
+                color: #2c3e50; 
                 margin-bottom: 40px;
                 text-align: center;
             }
@@ -71,7 +71,7 @@
             }
 
             .sidebar ul li a {
-                color: #34495e; /* Màu chữ tối thanh lịch */
+                color: #34495e; 
                 text-decoration: none;
                 font-size: 16px;
                 display: flex;
@@ -82,12 +82,12 @@
             }
 
             .sidebar ul li a:hover {
-                background-color: #ecf0f1; /* Màu nền khi hover */
+                background-color: #ecf0f1; 
             }
 
             .sidebar ul li a i {
                 margin-right: 12px;
-                color: #7f8c8d; /* Màu xám nhạt cho biểu tượng */
+                color: #7f8c8d; 
             }
 
             .sidebar ul li a.active {
@@ -117,7 +117,7 @@
             .search-bar form {
                 display: flex;
                 align-items: center;
-                gap: 10px; /* Khoảng cách giữa thanh tìm kiếm và các nút */
+                gap: 10px; 
             }
 
             /* Ô nhập liệu tìm kiếm */
@@ -128,7 +128,7 @@
                 background-color: #ffffff;
                 color: #333;
                 font-size: 14px;
-                width: 300px; /* Chiều rộng thanh tìm kiếm */
+                width: 300px; 
                 transition: border-color 0.3s ease;
             }
 
@@ -147,7 +147,7 @@
                 font-family: 'Roboto', sans-serif;
                 font-size: 14px;
                 font-weight: 500;
-                width: 100px; /* Đặt chiều rộng cố định để đồng bộ */
+                width: 100px; 
                 cursor: pointer;
                 transition: background-color 0.3s ease;
             }
@@ -166,7 +166,7 @@
                 font-family: 'Roboto', sans-serif;
                 font-size: 14px;
                 font-weight: 500;
-                width: 100px; /* Đặt chiều rộng cố định để đồng bộ với nút Search */
+                width: 100px; 
                 border: none;
                 transition: background-color 0.3s ease;
                 text-align: center;
@@ -240,7 +240,7 @@
                 font-weight: 500;
                 color: #7f8c8d;
                 font-size: 14px;
-                text-transform: uppercase; /* Chữ in hoa cho tiêu đề */
+                text-transform: uppercase; 
             }
 
             table td {
@@ -249,7 +249,7 @@
             }
 
             table tr:hover {
-                background-color: #f5f6fa; /* Màu nền khi hover */
+                background-color: #f5f6fa; 
             }
 
             /* Kiểu cho các nút trong bảng */
@@ -309,7 +309,7 @@
 
             /* Thông báo lỗi */
             p[style*="color: red"] {
-                color: #dc3545; /* Màu đỏ đậm hơn, đồng bộ với phong cách trước */
+                color: #dc3545; 
                 font-size: 14px;
                 margin-bottom: 15px;
             }
@@ -365,12 +365,12 @@
     </head>
     <body>
         <div class="dashboard">
-            <!-- Sidebar -->
+       
             <%@include file="dashBoardHeader.jsp" %>
 
-            <!-- Main Content -->
+      
             <div class="main-content">
-                <!-- Header -->
+       
                 <div class="header">
                     <div class="search-bar">
                         <input type="text" placeholder="Search products...">
@@ -383,7 +383,7 @@
                     </div>
                 </div>
 
-                <!-- Content -->
+     
                 <div class="content">
                     <% if (product != null) {%>
                     <h2>Product Name: <%= product.getName()%></h2>
@@ -413,7 +413,7 @@
                                     <td>$<%= variant.getPrice()%></td>
                                     <td><%= variant.getStockQuantity()%></td>
                                     <td>
-                                        <!-- Nút Edit -->
+                               
                                         <form action="ProductMgtController" method="GET" style="display: inline;">
                                             <input type="hidden" name="action" value="editVariant">
                                             <input type="hidden" name="variantId" value="<%= variant.getVariantId()%>">
@@ -421,7 +421,7 @@
                                         </form>
 
 
-                                        <!-- Nút Delete -->
+                                  
                                         <form action="ProductMgtController" method="POST" style="display: inline;">
                                             <input type="hidden" name="action" value="deleteVariant">
                                             <input type="hidden" name="variantId" value="<%= variant.getVariantId()%>">
@@ -446,27 +446,7 @@
 
                         <br>
                         <a href="ProductMgtController" class="btn btn-primary">Back to Product List</a>
-<!--                        <style>
-                            .btn-primary {
-                                display: inline-block;
-                                background-color: #000; /* Màu xanh Bootstrap */
-                                color: white; /* Chữ màu trắng */
-                                padding: 6px 12px; /* Kích thước nút */
-                                border: none;
-                                border-radius: 5px; /* Bo góc */
-                                font-size: 14px;
-                                font-weight: bold;
-                                text-align: center;
-                                text-decoration: none; /* Bỏ gạch chân */
-                                cursor: pointer;
-                                transition: background-color 0.3s;
-                            }
 
-                            .btn-primary:hover {
-                                background-color: #0056b3; /* Màu xanh đậm khi hover */
-                            }
-
-                        </style>-->
                     </div>
                 </div>
             </div>

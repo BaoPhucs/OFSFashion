@@ -7,11 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Order</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Select2 CSS for searchable dropdowns -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <!-- Custom CSS -->
     <style>
         body {
             background-color: #f8f9fa;
@@ -43,11 +40,9 @@
             font-weight: bold;
             margin-top: 20px;
         }
-        /* Ensure Select2 dropdown is above everything */
         .select2-container--open {
             z-index: 9999;
         }
-        /* Match Select2 style with Bootstrap */
         .select2-container .select2-selection--single {
             height: 38px;
             border: 1px solid #ced4da;
@@ -68,7 +63,6 @@
         <form action="OrderMgtController" method="POST">
             <input type="hidden" name="action" value="submitCreateOrder">
 
-            <!-- Chọn người dùng với khung search -->
             <div class="mb-3">
                 <label for="userId" class="form-label">Select User</label>
                 <select class="form-select searchable-select" id="userId" name="userId" required>
@@ -79,7 +73,6 @@
                 </select>
             </div>
 
-            <!-- Danh sách sản phẩm (Order Items) -->
             <div id="orderItems">
                 <div class="order-item">
                     <div class="mb-3">
@@ -95,7 +88,6 @@
                         <label class="form-label">Variant</label>
                         <select class="form-select variant-select" name="variantIds" onchange="updatePrice(this)">
                             <option value="">-- Select Variant --</option>
-                            <!-- Hiển thị tất cả biến thể, nhưng gắn productId để lọc -->
                             <c:forEach var="product" items="${products}">
                                 <c:forEach var="variant" items="${productVariants[product.productId]}">
                                     <option value="${variant.variantId}" 
@@ -122,16 +114,13 @@
                 </div>
             </div>
 
-            <!-- Nút thêm mục đơn hàng -->
             <button type="button" class="btn btn-secondary mb-3" onclick="addOrderItem()">Add Another Item</button>
 
-            <!-- Tổng tiền -->
             <div class="total-amount">
                 Total Amount: <span id="totalAmount">0.00</span>
             </div>
             <input type="hidden" name="totalAmount" id="totalAmountInput">
 
-            <!-- Chọn phương thức thanh toán -->
             <div class="mb-3">
                 <label for="paymentMethod" class="form-label">Payment Method</label>
                 <select class="form-select" id="paymentMethod" name="paymentMethod" required>
@@ -141,7 +130,6 @@
                 </select>
             </div>
 
-            <!-- Chọn trạng thái đơn hàng -->
             <div class="mb-3">
                 <label for="orderStatus" class="form-label">Order Status</label>
                 <select class="form-select" id="orderStatus" name="orderStatus" required>
@@ -152,7 +140,6 @@
                 </select>
             </div>
 
-            <!-- Chọn tùy chọn giao hàng -->
             <div class="mb-3">
                 <label for="deliveryOptions" class="form-label">Delivery Options</label>
                 <select class="form-select" id="deliveryOptions" name="deliveryOptions" required>
@@ -162,36 +149,27 @@
                 </select>
             </div>
 
-            <!-- Nút tạo đơn hàng -->
             <button type="submit" class="btn btn-primary">Create Order</button>
             <a href="OrderMgtController" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 
-    <!-- jQuery (required for Select2) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Select2 JS for searchable dropdowns -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- Custom JavaScript -->
     <script>
-        // Initialize Select2 for searchable dropdowns when document is ready
         $(document).ready(function() {
-            // Initialize Select2 on user and product selectors only
             initializeSelect2ForInitialDropdowns();
         });
 
-        // Function to initialize Select2 on user and product selectors only
         function initializeSelect2ForInitialDropdowns() {
-            // Apply to existing user selector
             $('#userId').select2({
                 width: '100%',
                 placeholder: $('#userId').find('option:first').text(),
                 allowClear: true
             });
             
-            // Apply to existing product selectors
             $('.product-select').each(function() {
                 $(this).select2({
                     width: '100%',
@@ -201,7 +179,6 @@
             });
         }
 
-        // Function to initialize Select2 for new product selectors when adding a new item
         function initializeSelect2ForNewItem(newItem) {
             $(newItem).find('.product-select').select2({
                 width: '100%',
@@ -210,21 +187,18 @@
             });
         }
 
-        // Lọc các biến thể dựa trên sản phẩm được chọn - keep original functionality
         function filterVariants(select) {
             const productId = parseInt(select.value);
             const orderItem = select.closest('.order-item');
             const variantSelect = orderItem.querySelector('.variant-select');
             const priceInput = orderItem.querySelector('.price');
 
-            // Đặt lại dropdown Variant và giá
             variantSelect.selectedIndex = 0;
             priceInput.value = '';
 
-            // Ẩn/hiện các tùy chọn trong dropdown Variant
             Array.from(variantSelect.options).forEach(option => {
                 if (option.value === "") {
-                    option.style.display = "block"; // Luôn hiển thị tùy chọn "-- Select Variant --"
+                    option.style.display = "block"; 
                     return;
                 }
                 const optionProductId = parseInt(option.getAttribute('data-product-id'));

@@ -13,19 +13,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Inventory Logs - OFS Fashion</title>
         <link rel="stylesheet" href="CSS/inventory.css">
-        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">-->
+        
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         
     </head>
     <body>
         <div class="dashboard">
-            <!-- Sidebar -->
             <%@include file="dashBoardHeader.jsp" %>
 
-            <!-- Main Content -->
             <div class="main-content">
-                <!-- Header -->
+       
                 <div class="header">
                     <div class="search-bar">
                         <form action="inventoryLog" method="get">
@@ -39,10 +37,10 @@
                     </div>
                 </div>
 
-                <!-- Content -->
+        
                 <div class="content">
                     <h1>Inventory Logs</h1>
-                    <!-- Quick Actions -->
+        
                     <div class="quick-actions">
                         <form method="get" action="inventoryLog">
                             <select name="sort" class="sort-option">
@@ -56,7 +54,7 @@
                         </form>
                     </div>
 
-                    <!-- Table Section -->
+          
                     <div class="table-section">
                         <c:choose>
                             <c:when test="${empty inventoryLogs}">
@@ -92,7 +90,7 @@
                             </c:otherwise>
                         </c:choose>
 
-                        <!-- Pagination -->
+
                         <c:if test="${not empty currentPage and not empty totalPages}">
                             <div class="pagination">
                                 <c:if test="${currentPage > 1}">

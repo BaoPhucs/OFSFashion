@@ -39,7 +39,7 @@ public class WishlistDAO extends DBContext {
                         rs.getString("name"),
                         rs.getString("description"),
                         rs.getBigDecimal("base_price"),
-                        null, // CategoryDTO có thể được lấy riêng nếu cần
+                        null, 
                         rs.getString("brand"),
                         rs.getString("material"),
                         createdAt

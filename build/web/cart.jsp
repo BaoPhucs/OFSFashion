@@ -183,7 +183,6 @@
                 border: 1px solid #ddd;
                 min-height: 200px;
                 width: 100%;
-/*                height: 350px;*/
             }
             .checkout-summary {
                 padding: 15px;
@@ -234,7 +233,6 @@
             }
         </style>
         <script>
-            // L?u tr? thông tin stockQuantity t? JSP
             const stockQuantities = [];
             <c:forEach var="item" items="${cart}" varStatus="loop">
                 stockQuantities[${loop.index}] = ${item.variant.stockQuantity};
@@ -245,25 +243,25 @@
                 let currentQuantity = parseInt(quantityElement.textContent);
                 let newQuantity = currentQuantity + change;
 
-                // Ki?m tra s? l??ng m?i có h?p l? không
+                // kiem tra so luong moi co hop le khong
                 if (newQuantity <= 0) {
-                    return; // Không cho phép s? l??ng nh? h?n 1
+                    return; // khong co phep < 1
                 }
 
-                // Ki?m tra v?i stockQuantity
+                // kt vs stockQuantity
                 let stockQuantity = stockQuantities[itemId];
                 let errorMessage = document.getElementById("stock-error-message");
                 if (newQuantity > stockQuantity) {
-                    // Hi?n th? thông báo l?i ngay l?p t?c
+                    // hien thi loi
                     errorMessage.innerHTML = "Cannot increase quantity. Only " + stockQuantity + " items in stock.";
                     errorMessage.style.display = "block";
                     return;
                 }
 
-                // C?p nh?t s? l??ng n?u h?p l?
+                // cap nhat sl neu hop le
                 quantityElement.textContent = newQuantity;
 
-                // C?p nh?t giá tr? input hidden
+                // cap nhat gtri
                 let quantityInput = document.getElementById("quantity-input-" + itemId);
                 if (quantityInput) {
                     quantityInput.value = newQuantity;
@@ -272,7 +270,7 @@
                     console.error("Quantity input for item " + itemId + " not found!");
                 }
 
-                // ?n thông báo l?i n?u s? l??ng h?p l?
+                // in tbao loi if < 1
                 errorMessage.style.display = "none";
 
                 updateTotal();
@@ -374,7 +372,7 @@
                 // Xóa các input c?
                 form.querySelectorAll('input[name="selectedItems"]').forEach(input => input.remove());
 
-                // L?y các checkbox ???c ch?n và t?o input ?n m?i
+                // lay các checkbox 
                 document.querySelectorAll('.cart-item input[type="checkbox"]:checked').forEach((checkbox) => {
                     hasCheckedItems = true;
                     let itemIndex = checkbox.value;
@@ -386,11 +384,10 @@
                     input.value = itemIndex;
                     form.appendChild(input);
 
-                    // L?y s? l??ng hi?n t?i t? span
+                    // lay s luong hien tai span
                     let quantitySpan = document.getElementById("quantity-" + itemIndex);
                     let currentQuantity = parseInt(quantitySpan.textContent);
 
-                    // T?o input ?n m?i cho s? l??ng
                     let quantityInput = document.createElement('input');
                     quantityInput.type = 'hidden';
                     quantityInput.name = 'quantity-' + itemIndex;
@@ -405,7 +402,6 @@
                     return;
                 }
 
-                // Debug: Log form data tr??c khi g?i
                 let formData = new FormData(form);
                 console.log("Form data before submit:");
                 for (let [key, value] of formData.entries()) {
@@ -416,7 +412,6 @@
             }
 
             window.onload = function () {
-                // Ch?n t?t c? checkbox m?c ??nh
                 document.querySelectorAll(".cart-item input[type='checkbox']").forEach(checkbox => {
                     checkbox.checked = true;
                 });

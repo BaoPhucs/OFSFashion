@@ -1,8 +1,8 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-    color: #333; /* Màu chữ tối nhẹ */
+    background-color: #f7f9fc; 
+    color: #333; 
 }
 
 /* Bố cục Dashboard */
@@ -16,14 +16,14 @@ body {
     width: 230px;
     background-color: #ffffff;
     padding: 30px 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); 
     transition: width 0.3s ease;
 }
 
 .sidebar .logo {
     font-size: 26px;
     font-weight: 700;
-    color: #2c3e50; /* Màu xanh đậm nhã nhặn */
+    color: #2c3e50;
     margin-bottom: 40px;
     text-align: center;
 }
@@ -38,7 +38,7 @@ body {
 }
 
 .sidebar ul li a {
-    color: #34495e; /* Màu chữ tối thanh lịch */
+    color: #34495e; 
     text-decoration: none;
     font-size: 16px;
     display: flex;
@@ -49,12 +49,12 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background-color: #ecf0f1; /* Màu nền khi hover */
+    background-color: #ecf0f1; 
 }
 
 .sidebar ul li a i {
     margin-right: 12px;
-    color: #7f8c8d; /* Màu xám nhạt cho biểu tượng */
+    color: #7f8c8d; 
 }
 
 .sidebar ul li a.active {
@@ -84,7 +84,7 @@ body {
 .search-bar form {
     display: flex;
     align-items: center;
-    gap: 10px; /* Khoảng cách giữa thanh tìm kiếm và các nút */
+    gap: 10px; 
 }
 
 .search-bar input {
@@ -94,7 +94,7 @@ body {
     background-color: #ffffff;
     color: #333;
     font-size: 14px;
-    width: 300px; /* Chiều rộng thanh tìm kiếm */
+    width: 300px; 
     transition: border-color 0.3s ease;
 }
 
@@ -113,7 +113,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    width: 100px; /* Đặt chiều rộng cố định để đồng bộ */
+    width: 100px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -270,7 +270,7 @@ table th {
     font-weight: 500;
     color: #7f8c8d;
     font-size: 14px;
-    text-transform: uppercase; /* Chữ in hoa cho tiêu đề */
+    text-transform: uppercase; 
 }
 
 table td {
@@ -279,7 +279,7 @@ table td {
 }
 
 table tr:hover {
-    background-color: #f5f6fa; /* Màu nền khi hover */
+    background-color: #f5f6fa;
 }
 
 /* Nút trong bảng */

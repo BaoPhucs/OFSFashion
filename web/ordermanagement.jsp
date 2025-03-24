@@ -12,79 +12,22 @@
         <link rel="stylesheet" href="CSS/order.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<!--        <style>
-            .clear-search-btn {
-                margin-left: 5px;
-                padding: 3px;
-                background-color: white;
-                color: black;
-                text-decoration: none;
-                border-radius: 5px;
-                font-size: 10px;
-                font-weight: bold;
-                transition: background-color 0.3s;
-                border: black solid 1px;
-            }
 
-            .clear-search-btn:hover {
-                background-color: #e5e5e5;
-            }
-
-            .btn-info, .btn-primary, .btn-danger {
-                display: inline-block;
-                padding: 6px 12px;
-                border: none;
-                border-radius: 5px;
-                font-size: 14px;
-                font-weight: bold;
-                text-align: center;
-                text-decoration: none;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-
-            .btn-info {
-                background-color: #17a2b8;
-                color: white;
-            }
-
-            .btn-info:hover {
-                background-color: #138496;
-            }
-
-            .btn-primary {
-                background-color: #007bff;
-                color: white;
-            }
-
-            .btn-primary:hover {
-                background-color: #0056b3;
-            }
-
-            .btn-danger {
-                background-color: #dc3545;
-                color: white;
-            }
-
-            .btn-danger:hover {
-                background-color: #c82333;
-            }
-        </style>-->
     </head>
     <body>
         <div class="dashboard">
-            <!-- Sidebar -->
+           
             <%@include file="dashBoardHeader.jsp" %>
 
-            <!-- Main Content -->
+           
             <div class="main-content">
-                <!-- Header -->
+             
                 <div class="header">
                     <div class="search-bar">
                         <form action="OrderMgtController" method="GET">
                             <input type="text" name="keyword" placeholder="Search orders..." value="${param.keyword}">
                             <button type="submit">Search</button>
-                            <!-- Thêm nút "Clear Search" ?? xóa t? khóa và hi?n th? l?i toàn b? ??n hàng -->
+                            
                             <a href="OrderMgtController" class="clear-search-btn">Clear Search</a>
                         </form>
                     </div>
@@ -95,22 +38,22 @@
                     </div>
                 </div>
 
-                <!-- Content -->
+         
                 <div class="content">
                     <h1>Order Management</h1>
 
-                    <!-- Quick Actions -->
+                   
                     <div class="quick-actions">
     <a href="OrderMgtController?action=createOrder" class="btn btn-primary">Create Order</a>
     <form method="get" action="OrderMgtController">
-        <!-- Dropdown ch?n tr?ng thái ??n hàng -->
+   
         <select name="status" id="status-filter" class="filter-status">
             <option value="all" ${"all".equals(request.getParameter("status")) ? "selected" : ""}>All Statuses</option>
             <option value="Processing" ${"Processing".equals(request.getParameter("status")) ? "selected" : ""}>Processing</option>
             <option value="Delivered" ${"Delivered".equals(request.getParameter("status")) ? "selected" : ""}>Delivered</option>
         </select>
 
-        <!-- Dropdown s?p x?p -->
+        
         <select name="sort" class="sort-date">
             <option value="none" <%= "none".equals(request.getParameter("sort")) ? "selected" : ""%>>Default</option>
             <option value="date_asc" <%= "date_asc".equals(request.getParameter("sort")) ? "selected" : ""%>>Date: Oldest to Newest</option>
@@ -119,13 +62,11 @@
             <option value="total_desc" <%= "total_desc".equals(request.getParameter("sort")) ? "selected" : ""%>>Total: High to Low</option>
         </select>
 
-        <!-- Gi? t? khóa tìm ki?m trong form l?c -->
         <input type="hidden" name="keyword" value="${param.keyword}">
         <button type="submit" class="apply-btn">Apply</button>
     </form>
 </div>
 
-                    <!-- Table Section -->
                     <div class="table-section">
                         <table border="1">
                             <thead>
@@ -174,7 +115,7 @@
                             </tbody>
                         </table>
 
-                        <!-- Pagination -->
+      
                         <%
                             if (request.getAttribute("currentPage") != null && request.getAttribute("totalPages") != null) {
                                 int currentPage = (int) request.getAttribute("currentPage");
@@ -202,7 +143,7 @@
             </div>
         </div>
 
-        <!-- Order Details Modal -->
+    
         <div class="modal" id="orderDetailsModal">
             <div class="modal-content">
                 <span class="close">×</span>
@@ -227,13 +168,13 @@
                         </tr>
                     </thead>
                     <tbody id="orderItemsTable">
-                        <!-- Order items will be dynamically populated here -->
+                        
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Notification -->
+    
         <div class="notification">
             <span>Order has been updated successfully!</span>
         </div>

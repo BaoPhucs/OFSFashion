@@ -42,7 +42,7 @@ public class OrderMgtController extends HttpServlet {
 
         // Kiểm tra quyền admin
         HttpSession session = request.getSession();
-        UsersDTO admin = (UsersDTO) session.getAttribute("account"); // Sử dụng key "account" giống ProductMgtController
+        UsersDTO admin = (UsersDTO) session.getAttribute("account"); 
         if (admin == null || !"admin".equalsIgnoreCase(admin.getUserType())) {
             response.sendRedirect("login.jsp?error=PleaseLogin");
             return;
@@ -154,9 +154,9 @@ public class OrderMgtController extends HttpServlet {
                         // Ghi log vào inventory_logs
                         InventoryLogDTO log = new InventoryLogDTO();
                         log.setVariantId(variantId);
-                        log.setStockChange(-quantity); // Giảm số lượng nên là số âm
+                        log.setStockChange(-quantity); 
                         log.setChangeType("Removed");
-                        log.setAdminId(admin.getUserId()); // Lấy adminId từ session
+                        log.setAdminId(admin.getUserId()); 
                         log.setChangeReason("Order ID: " + orderId);
                         log.setChangedAt(LocalDateTime.now());
 
@@ -166,7 +166,6 @@ public class OrderMgtController extends HttpServlet {
                     }
                 }
 
-                // Chuyển hướng về trang ordermanagement.jsp với thông báo thành công
                 response.sendRedirect("OrderMgtController?success=OrderCreated");
                 return;
             } else if ("viewOrders".equals(action)) {
@@ -266,7 +265,7 @@ public class OrderMgtController extends HttpServlet {
             request.setAttribute("selectedStatus", statusFilter);
             request.setAttribute("currentPage", page);
             request.setAttribute("totalPages", totalPages);
-            request.setAttribute("keyword", keyword); // Lưu từ khóa để hiển thị trên giao diện
+            request.setAttribute("keyword", keyword); 
 
             request.getRequestDispatcher("ordermanagement.jsp").forward(request, response);
 

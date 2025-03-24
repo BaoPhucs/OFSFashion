@@ -47,7 +47,6 @@ public class InventoryLogDAO extends DBContext{
 
         List<Object> params = new ArrayList<>();
 
-        // Tìm kiếm theo keyword
         if (keyword != null && !keyword.trim().isEmpty()) {
             sql.append("WHERE CAST(log_id AS VARCHAR) LIKE ? "
                     + "OR CAST(variant_id AS VARCHAR) LIKE ? "
@@ -61,7 +60,6 @@ public class InventoryLogDAO extends DBContext{
             }
         }
 
-        // Sắp xếp
         switch (sort) {
             case "date_asc":
                 sql.append("ORDER BY changed_at ASC ");
@@ -80,7 +78,6 @@ public class InventoryLogDAO extends DBContext{
                 break;
         }
 
-        // Phân trang
         sql.append("OFFSET ? ROWS FETCH NEXT ? ROWS ONLY");
         params.add(offset);
         params.add(limit);
@@ -109,7 +106,6 @@ public class InventoryLogDAO extends DBContext{
         return logs;
     }
 
-    // Lấy tổng số log (hỗ trợ tìm kiếm)
     public int getTotalLogs(String keyword) {
         StringBuilder sql = new StringBuilder("SELECT COUNT(*) FROM inventory_logs ");
         List<Object> params = new ArrayList<>();

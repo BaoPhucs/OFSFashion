@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Footer Section</title>
-        <link rel="stylesheet" href="CSS/styles.css"> <%-- Link to external CSS file --%>
+        <link rel="stylesheet" href="CSS/styles.css"> 
     </head>
     <body>
 

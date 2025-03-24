@@ -15,8 +15,8 @@
             body {
                 margin: 0;
                 font-family: 'Roboto', sans-serif;
-                background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-                color: #333; /* Màu chữ tối nhẹ */
+                background-color: #f7f9fc; 
+                color: #333; 
                 padding: 20px;
             }
 
@@ -30,7 +30,7 @@
 
             /* Thông báo lỗi */
             p[style*="color: red"] {
-                color: #dc3545; /* Màu đỏ đậm hơn, đồng bộ với phong cách trước */
+                color: #dc3545; 
                 font-size: 14px;
                 margin-bottom: 15px;
             }
@@ -55,7 +55,7 @@
             /* Bảng */
             table {
                 width: 100%;
-                max-width: 600px; /* Giới hạn chiều rộng bảng, đồng bộ với AddProductImage */
+                max-width: 600px; 
                 border-collapse: collapse;
                 background-color: #ffffff;
                 border-radius: 10px;
@@ -80,7 +80,7 @@
                 color: #333;
                 font-size: 14px;
                 width: 100%;
-                box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+                box-sizing: border-box; 
                 transition: border-color 0.3s ease;
             }
 
@@ -100,7 +100,7 @@
 
             input[type="checkbox"] {
                 margin-right: 5px;
-                accent-color: #3498db; /* Màu của checkbox khi được chọn */
+                accent-color: #3498db; 
             }
 
             /* Nút Finish */
@@ -157,7 +157,6 @@
             <input type="hidden" name="product_id" value="<%= productId%>">
 
             <table>
-                <!-- Chọn Size -->
                 <tr>
                     <td><label>Size:</label></td>
                     <td>
@@ -171,7 +170,6 @@
                     </td>
                 </tr>
 
-                <!-- Chọn Màu -->
                 <tr>
                     <td><label>Color:</label></td>
                     <td>

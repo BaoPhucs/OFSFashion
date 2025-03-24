@@ -21,8 +21,8 @@
             body {
                 margin: 0;
                 font-family: 'Roboto', sans-serif;
-                background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-                color: #333; /* Màu chữ tối nhẹ */
+                background-color: #f7f9fc; 
+                color: #333; 
                 padding: 20px;
             }
 
@@ -37,7 +37,7 @@
             /* Bảng */
             table {
                 width: 100%;
-                max-width: 500px; /* Giới hạn chiều rộng bảng */
+                max-width: 500px; 
                 border-collapse: collapse;
                 background-color: #ffffff;
                 border-radius: 10px;
@@ -64,7 +64,7 @@
                 color: #333;
                 font-size: 14px;
                 width: 100%;
-                box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+                box-sizing: border-box; 
                 transition: border-color 0.3s ease;
             }
 
@@ -83,7 +83,7 @@
 
             /* Textarea */
             textarea {
-                resize: vertical; /* Chỉ cho phép thay đổi chiều cao */
+                resize: vertical; 
             }
 
             /* Nút Save Product */

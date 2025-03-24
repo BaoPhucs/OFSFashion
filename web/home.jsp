@@ -39,11 +39,9 @@
 
         <jsp:include page="searchOverlay.jsp" />
         <script>
-            // Truyền giá trị openOverlay từ JSP sang JavaScript
             window.shouldOpenOverlay = ${param.openOverlay == 'true' ? 'true' : 'false'};
             console.log('shouldOpenOverlay from JSP:', window.shouldOpenOverlay); // Debug
 
-            // Mở overlay khi trang load nếu có openOverlay=true
             window.addEventListener('load', function() {
                 if (window.shouldOpenOverlay === true) {
                     document.getElementById('searchOverlay').classList.add('active');
@@ -51,7 +49,6 @@
             });
         </script>
 
-        <!-- Nhúng Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <%@include file="footer.jsp"%>
     </body>

@@ -136,20 +136,20 @@
 
 .product-item a {
     text-decoration: none !important;
-    color: inherit !important; /* Giữ màu chữ như phần tử cha */
-    display: block; /* Đảm bảo thẻ a chiếm toàn bộ khu vực */
+    color: inherit !important;
+    display: block; 
 }
 
 /* Xử lý trạng thái hover/focus */
 .product-item a:hover,
 .product-item a:focus {
     text-decoration: none !important;
-    outline: none !important; /* Loại bỏ viền khi focus */
+    outline: none !important; 
 }
 
 /* Đảm bảo các phần tử con không bị ảnh hưởng */
 .product-item a h3,
-.product-item a p {color: inherit !important; /* Kế thừa màu từ .product-item */
+.product-item a p {color: inherit !important; 
                    text-decoration: none !important;
                    align-items: center !important;
 }

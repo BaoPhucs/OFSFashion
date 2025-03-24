@@ -5,7 +5,6 @@
  */
 package controller;
 
-import OFS.Product.Product;
 import OFS.Product.ProductDAO;
 import OFS.Product.ProductImages;
 import OFS.Users.UsersDTO;
@@ -113,16 +112,14 @@ public class WishlistController extends HttpServlet {
         String redirect = request.getParameter("redirect");
         int productId;
 
-        // Xử lý productId với try-catch để tránh NumberFormatException
         try {
             productId = Integer.parseInt(request.getParameter("productId"));
         } catch (NumberFormatException e) {
             request.setAttribute("errorMessage", "Invalid product ID.");
-            doGet(request, response); // Quay lại wishlist với thông báo lỗi
+            doGet(request, response); 
             return;
         }
 
-        // Thực hiện hành động thêm/xóa khỏi wishlist
         boolean success = false;
         if ("add".equals(action)) {
             success = wishlistDAO.addToWishlist(user.getUserId(), productId);
@@ -142,7 +139,6 @@ public class WishlistController extends HttpServlet {
             request.setAttribute("errorMessage", "Invalid action.");
         }
 
-        // Chuyển hướng dựa trên redirect
         if ("productlist".equals(redirect)) {
             String referer = request.getHeader("Referer");
             response.sendRedirect(referer != null ? referer : "productbycategory");
@@ -162,7 +158,7 @@ public class WishlistController extends HttpServlet {
                 response.sendRedirect("home?openOverlay=true");
             }
         } else {
-            // Nếu không có redirect hoặc redirect là wishlist, gọi lại doGet để hiển thị wishlist với thông báo
+            
             doGet(request, response);
         }
     }

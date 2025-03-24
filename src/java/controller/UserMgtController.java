@@ -148,12 +148,10 @@ public class UserMgtController extends HttpServlet {
             List<UsersDTO> users;
             int totalRecords;
 
-            // Nếu có từ khóa tìm kiếm, thực hiện tìm kiếm với phân trang
             if (keyword != null && !keyword.trim().isEmpty()) {
                 users = userDAO.searchUsersWithPagination(keyword, offset, recordsPerPage);
                 totalRecords = userDAO.getTotalSearchUsers(keyword);
             } else {
-                // Nếu không có từ khóa, lấy danh sách người dùng theo bộ lọc và phân trang
                 users = userDAO.getUsersWithFilters(offset, recordsPerPage, roleFilter, sort);
                 totalRecords = userDAO.getTotalUsers(roleFilter);
             }

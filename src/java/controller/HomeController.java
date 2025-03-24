@@ -62,18 +62,13 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CategoryDAO categoryDAO = new CategoryDAO();
-//        List<CategoryDTO> categoryList = categoryDAO.getAllCategories();
-//        request.setAttribute("categoryList", categoryList);
-//        request.getRequestDispatcher("home.jsp").forward(request, response);
 try {
-            // Lấy danh sách danh mục
             List<CategoryDTO> categoryList = categoryDAO.getAllCategories();
             request.setAttribute("categoryList", categoryList);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        // Forward đến home.jsp
         request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
 

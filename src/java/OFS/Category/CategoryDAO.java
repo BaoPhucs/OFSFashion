@@ -43,7 +43,6 @@ public class CategoryDAO extends DBContext {
         return null;
     }
 
-    // Thêm phương thức lấy tất cả categories
     public List<CategoryDTO> getAllCategories() {
         List<CategoryDTO> categoryList = new ArrayList<>();
         String sql = "SELECT * FROM Categories";

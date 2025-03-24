@@ -43,7 +43,7 @@ public class DashBoardController extends HttpServlet {
             request.setAttribute("deliveredOrders", (deliveredOrders != null) ? deliveredOrders : 0);
 
             // Phân trang cho Recent Orders
-            int recordsPerPage = 10; // Số đơn hàng trên mỗi trang
+            int recordsPerPage = 10; 
             int recentOrderPage = 1;
             if (request.getParameter("recentOrderPage") != null) {
                 recentOrderPage = Integer.parseInt(request.getParameter("recentOrderPage"));
@@ -53,7 +53,7 @@ public class DashBoardController extends HttpServlet {
             // Lấy trạng thái lọc từ tham số
             String statusFilter = request.getParameter("statusFilter");
             if (statusFilter == null || statusFilter.trim().isEmpty()) {
-                statusFilter = "all"; // Mặc định là tất cả trạng thái
+                statusFilter = "all"; 
             }
 
             // Lấy danh sách Recent Orders với bộ lọc trạng thái và phân trang
@@ -70,7 +70,7 @@ public class DashBoardController extends HttpServlet {
             String filter = request.getParameter("filter");
 
             if (keyword != null && !keyword.trim().isEmpty()) {
-                int searchRecordsPerPage = 5; // 5 kết quả mỗi loại trên mỗi trang
+                int searchRecordsPerPage = 5; 
 
                 // Phân trang cho users
                 int userPage = 1;

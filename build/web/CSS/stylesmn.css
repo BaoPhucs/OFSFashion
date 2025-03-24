@@ -2,8 +2,8 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-    color: #333; /* Màu chữ tối nhẹ */
+    background-color: #f7f9fc;  
+    color: #333;  
 }
 
 /* Bố cục Dashboard */
@@ -17,14 +17,14 @@ body {
     width: 230px;
     background-color: #ffffff;
     padding: 30px 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);  
     transition: width 0.3s ease;
 }
 
 .sidebar .logo {
     font-size: 26px;
     font-weight: 700;
-    color: #2c3e50; /* Màu xanh đậm nhã nhặn */
+    color: #2c3e50;  
     margin-bottom: 40px;
     text-align: center;
 }
@@ -39,7 +39,7 @@ body {
 }
 
 .sidebar ul li a {
-    color: #34495e; /* Màu chữ tối thanh lịch */
+    color: #34495e; 
     text-decoration: none;
     font-size: 16px;
     display: flex;
@@ -50,12 +50,12 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background-color: #ecf0f1; /* Màu nền khi hover */
+    background-color: #ecf0f1;  
 }
 
 .sidebar ul li a i {
     margin-right: 12px;
-    color: #7f8c8d; /* Màu xám nhạt cho biểu tượng */
+    color: #7f8c8d;  
 }
 
 /* Nội dung chính */
@@ -79,15 +79,15 @@ body {
 /* Thanh tìm kiếm */
 .search-bar form {
     display: flex;
-    flex-direction: column; /* Đặt các phần tử theo cột */
-    gap: 10px; /* Khoảng cách giữa thanh tìm kiếm và bộ lọc */
+    flex-direction: column;
+    gap: 10px; 
 }
 
 /* Hàng chứa thanh tìm kiếm và nút */
 .search-row {
     display: flex;
     align-items: center;
-    gap: 10px; /* Khoảng cách giữa thanh tìm kiếm và các nút */
+    gap: 10px; 
 }
 
 /* Ô nhập liệu tìm kiếm */
@@ -98,7 +98,7 @@ body {
     background-color: #ffffff;
     color: #333;
     font-size: 14px;
-    width: 300px; /* Chiều rộng thanh tìm kiếm */
+    width: 300px; 
     transition: border-color 0.3s ease;
 }
 
@@ -117,7 +117,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    width: 100px; /* Đặt chiều rộng cố định để đồng bộ */
+    width: 100px; 
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -136,7 +136,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    width: 100px; /* Đặt chiều rộng cố định để đồng bộ với nút Search */
+    width: 100px; 
     border: none;
     transition: background-color 0.3s ease;
     text-align: center;
@@ -149,10 +149,10 @@ body {
 /* Tùy chọn bộ lọc */
 .filter-options {
     display: flex;
-    gap: 15px; /* Khoảng cách giữa các radio buttons */
+    gap: 15px; 
     font-size: 14px;
     color: #7f8c8d;
-    margin-top: 10px; /* Khoảng cách giữa thanh tìm kiếm và bộ lọc */
+    margin-top: 10px; 
    
 }
 .filter-options input {
@@ -161,7 +161,7 @@ body {
 .filter-options label {
     display: flex;
     align-items: center;
-    gap: 5px; /* Tăng khoảng cách giữa radio button và chữ lên 5px */
+    gap: 5px; 
 }
 
 .user-profile {
@@ -216,7 +216,7 @@ h1 {
 }
 
 .stat-card:hover {
-    transform: translateY(-5px); /* Hiệu ứng nâng lên khi hover */
+    transform: translateY(-5px); 
 }
 
 .stat-card h2 {
@@ -279,7 +279,7 @@ table th {
     font-weight: 500;
     color: #7f8c8d;
     font-size: 14px;
-    text-transform: uppercase; /* Chữ in hoa cho tiêu đề */
+    text-transform: uppercase;
 }
 
 table td {
@@ -288,7 +288,7 @@ table td {
 }
 
 table tr:hover {
-    background-color: #f5f6fa; /* Màu nền khi hover */
+    background-color: #f5f6fa; 
 }
 
 /* Phân trang */
@@ -308,7 +308,7 @@ table tr:hover {
                 border-radius: 8px;
                 font-family: 'Roboto', sans-serif;
                 font-size: 14px;
-                font-weight: 600; /* In đậm chữ Next và Previous */
+                font-weight: 600; 
                 text-decoration: none;
                 cursor: pointer;
                 transition: background-color 0.3s ease, color 0.3s ease;
@@ -316,7 +316,7 @@ table tr:hover {
 
             .pagination a:hover {
                 background-color: #e5e5e5;
-                color: #2C3E50; /* Màu xanh đậm hơn khi hover */
+                color: #2C3E50; 
             }
 
             .pagination span {
@@ -337,7 +337,7 @@ table tr:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #27ae60; /* Màu xanh lá nhẹ nhàng */
+    background-color: #27ae60; 
     color: #ffffff;
     padding: 12px 25px;
     border-radius: 8px;
@@ -387,6 +387,6 @@ table tr:hover {
     .filter-options {
         flex-direction: column;
         gap: 10px;
-        max-width: 100%; /* Đảm bảo responsive */
+        max-width: 100%; 
     }
 }

@@ -11,7 +11,6 @@
     <body>
         <header class="an-header">
             <div class="an-header-menu">
-                <!--                <button class="an-btn-menu"><i class="fas fa-bars"></i> Menu</button>-->
                 <a href="home"><img class="img-logo" src="Images/logo.jpg"></a>
                 <a href="${pageContext.request.contextPath}/search" class="search-link d-flex align-items-center" target="_self">
                     <i class="bi bi-search me-1"></i> Search

@@ -284,11 +284,11 @@
 
 
             .fa-star.filled {
-                color: gold; /* Sao v?ng */
+                color: gold;
             }
 
             .fa-star.far {
-                color: grey; /* Sao x?m */
+                color: grey;
             }
 
             .half-star {
@@ -307,12 +307,12 @@
             }
 
             .half-star .far {
-                color: grey; /* Sao x?m l?m n?n */
+                color: grey; 
             }
 
             .half-star .half-filled {
                 color: gold;
-                clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); /* C?t n?a b?n tr?i th?nh v?ng */
+                clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); 
             }
         </style>
         <script>

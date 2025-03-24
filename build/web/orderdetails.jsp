@@ -71,12 +71,12 @@
             }
 
             .order-item .details a {
-                color: #000; /* Đảm bảo màu chữ của liên kết khớp với text */
-                text-decoration: none; /* Bỏ gạch chân nếu không muốn */
+                color: #000; 
+                text-decoration: none;
             }
 
             .order-item .details a:hover {
-                color: #333; /* Thay đổi màu khi hover nếu cần */
+                color: #333; 
             }
 
             .order-item .price {
@@ -101,7 +101,7 @@
 
             .review-form {
                 margin-top: 10px;
-                display: none; /* Ẩn ban đầu */
+                display: none; 
             }
 
             .review-form.active {

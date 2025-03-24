@@ -99,13 +99,10 @@ public class LoginController extends HttpServlet {
         UsersDTO a = d.check(u, p);
         HttpSession session = request.getSession();
         if (a == null) {
-            //chua co
             request.setAttribute("error", "Username or Password is incorrect");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
-            //co tim thay tao session
             session.setAttribute("account", a);
-            //response.sendRedirect("order");
         }
     }
 

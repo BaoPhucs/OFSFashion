@@ -130,7 +130,7 @@ public class CheckoutController extends HttpServlet {
         // Lấy ảnh đầu tiên cho mỗi sản phẩm
         ProductDAO productDAO = new ProductDAO();
         for (CartItem item : selectedCartItems) {
-            int productId = item.getProduct().getProductId(); // Lấy productId từ Product
+            int productId = item.getProduct().getProductId(); 
             List<ProductImages> images = productDAO.getProductImagesByProductId(productId);
             if (!images.isEmpty()) {
                 request.setAttribute("firstImage_" + productId, images.get(0).getImageUrl());
@@ -292,9 +292,9 @@ public class CheckoutController extends HttpServlet {
                     // Ghi log vào bảng inventory_logs
                     InventoryLogDTO log = new InventoryLogDTO();
                     log.setVariantId(variantId);
-                    log.setStockChange(-quantity); // Số lượng giảm (âm)
+                    log.setStockChange(-quantity); 
                     log.setChangeType("Removed");
-                    log.setAdminId(user.getUserId()); // Sử dụng userId của người dùng
+                    log.setAdminId(user.getUserId()); 
                     log.setChangeReason("Checkout by user");
                     log.setChangedAt(LocalDateTime.now());
                     inventoryLogDAO.addInventoryLog(log);

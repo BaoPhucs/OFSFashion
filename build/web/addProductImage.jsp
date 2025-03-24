@@ -15,8 +15,8 @@
             body {
                 margin: 0;
                 font-family: 'Roboto', sans-serif;
-                background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-                color: #333; /* Màu chữ tối nhẹ */
+                background-color: #f7f9fc; 
+                color: #333; 
                 padding: 20px;
             }
 
@@ -30,7 +30,7 @@
 
             /* Thông báo lỗi */
             p[style*="color: red"] {
-                color: #dc3545; /* Màu đỏ đậm hơn, đồng bộ với phong cách trước */
+                color: #dc3545; 
                 font-size: 14px;
                 margin-bottom: 15px;
             }
@@ -55,7 +55,7 @@
             /* Bảng */
             table {
                 width: 100%;
-                max-width: 600px; /* Mở rộng chiều rộng bảng để bố cục thoải mái hơn */
+                max-width: 600px; 
                 border-collapse: collapse;
                 background-color: #ffffff;
                 border-radius: 10px;
@@ -75,7 +75,7 @@
             .input-group {
                 display: flex;
                 align-items: center;
-                gap: 10px; /* Khoảng cách giữa ô nhập liệu và nút */
+                gap: 10px; 
             }
 
             /* Ô nhập liệu */
@@ -87,8 +87,8 @@
                 background-color: #ffffff;
                 color: #333;
                 font-size: 14px;
-                width: 250px; /* Giới hạn chiều rộng ô nhập liệu để nút Generate có không gian */
-                box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+                width: 250px; 
+                box-sizing: border-box; 
                 transition: border-color 0.3s ease;
             }
 
@@ -100,13 +100,13 @@
 
             /* Các ô nhập liệu trong #image_fields */
             #image_fields input[type="text"] {
-                width: 100%; /* Các ô nhập liệu URL ảnh chiếm toàn bộ chiều rộng */
+                width: 100%; 
             }
 
             /* Nút Generate */
             button[type="button"] {
                 padding: 10px 20px;
-                background-color: #28a745; /* Màu xanh lá */
+                background-color: #28a745; 
                 color: #ffffff;
                 border: none;
                 border-radius: 8px;
@@ -115,7 +115,7 @@
                 font-weight: 500;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
-                white-space: nowrap; /* Đảm bảo chữ không xuống dòng */
+                white-space: nowrap; 
             }
 
             button[type="button"]:hover {
@@ -195,7 +195,6 @@
             <input type="hidden" name="product_id" value="<%= productId%>">
 
             <table>
-                <!-- Chọn số lượng ảnh -->
                 <tr>
                     <td><label for="image_count">Number of Images:</label></td>
                     <td>
@@ -204,14 +203,12 @@
                     </td>
                 </tr>
 
-                <!-- Khung chứa các input nhập URL ảnh -->
                 <tr>
                     <td colspan="2">
                         <div id="image_fields"></div>
                     </td>
                 </tr>
 
-                <!-- Nút Submit -->
                 <tr>
                     <td colspan="2">
                         <input name="action" value="insertProductImage" type="hidden">
@@ -225,7 +222,7 @@
             function generateImageFields() {
                 const count = document.getElementById("image_count").value;
                 const container = document.getElementById("image_fields");
-                container.innerHTML = ""; // Xóa các input cũ
+                container.innerHTML = ""; 
 
                 for (let i = 1; i <= count; i++) {
                     const div = document.createElement("div");

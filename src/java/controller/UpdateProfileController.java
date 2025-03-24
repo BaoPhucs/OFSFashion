@@ -98,7 +98,7 @@ public class UpdateProfileController extends HttpServlet {
         boolean success = dao.updateUserProfile(user);
 
         if (success) {
-            session.setAttribute("account", user); // Cập nhật session
+            session.setAttribute("account", user); 
             request.setAttribute("successMessageUpdate", "Profile updated successfully!");
         } else {
             request.setAttribute("errorUpdate", "Failed to update profile. Please try again!");

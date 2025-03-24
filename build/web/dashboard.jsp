@@ -20,18 +20,18 @@
         <link rel="stylesheet" href="CSS/stylesmn.css">
         <style>
             .clear-search-btn {
-                padding: 10px 20px; /* Đặt padding giống nút Search */
-                background-color: #F7F9FC; /* Màu nền giống nút Search */
-                color: grey; /* Màu chữ giống nút Search */
+                padding: 10px 20px; 
+                background-color: #F7F9FC; 
+                color: grey; 
                 text-decoration: none;
-                border-radius: 8px; /* Bo tròn giống nút Search */
-                font-family: 'Roboto', sans-serif; /* Đảm bảo font giống nhau */
-                font-size: 14px; /* Kích thước chữ giống nút Search */
-                font-weight: 500; /* Độ đậm chữ giống nút Search */
-                width: 100px; /* Đặt chiều rộng cố định để đồng bộ với nút Search */
-                border: none; /* Bỏ viền để giống nút Search */
+                border-radius: 8px; 
+                font-family: 'Roboto', sans-serif; 
+                font-size: 14px; 
+                font-weight: 500; 
+                width: 100px; 
+                border: none; 
                 transition: background-color 0.3s ease;
-                text-align: center; /* Căn giữa chữ */
+                text-align: center;
             }
 
             .clear-search-btn:hover {
@@ -55,12 +55,9 @@
     </head>
     <body>
         <div class="dashboard">
-            <!-- Sidebar -->
             <%@include file="dashBoardHeader.jsp"%>
 
-            <!-- Main Content -->
             <div class="main-content">
-                <!-- Header -->
                 <div class="header">
                     <div class="search-bar">
                         <form action="DashBoardController" method="POST">
@@ -83,7 +80,6 @@
                     </div>
                 </div>
 
-                <!-- Content -->
                 <div class="content">
                     <h1>Dashboard</h1>
                     <div class="stats">
@@ -116,10 +112,8 @@
                         <div class="stat-card"><h2>Delivered Orders</h2><p><%= deliveredOrders%></p></div>
                     </div>
 
-                    <!-- Recent Orders Section -->
                     <div class="table-section">
                         <h2>Recent Orders</h2>
-                        <!-- Table Actions -->
                         <div class="table-actions">
                             <form id="status-filter-form" action="DashBoardController" method="GET">
                                 <input type="hidden" name="recentOrderPage" value="${param.recentOrderPage != null ? param.recentOrderPage : 1}">
@@ -167,7 +161,6 @@
                                 %>
                             </tbody>
                         </table>
-                        <!-- Pagination for Recent Orders -->
                         <div class="pagination">
                             <%
                                 if (request.getAttribute("currentRecentOrderPage") != null && request.getAttribute("totalRecentOrderPages") != null) {
@@ -193,7 +186,6 @@
                         </div>
                     </div>
 
-                    <!-- Search Results Section -->
                     <div class="search-results">
                         <% List<Order> orders = (List<Order>) request.getAttribute("orders"); %>
                         <% List<UsersDTO> users = (List<UsersDTO>) request.getAttribute("users"); %>
@@ -218,7 +210,7 @@
                                 <% } %>
                             </tbody>
                         </table>
-                        <!-- Pagination for Orders -->
+                       
                         <div class="pagination">
                             <%
                                 if (request.getAttribute("currentOrderPage") != null && request.getAttribute("totalOrderPages") != null) {
@@ -261,7 +253,7 @@
                                 <% } %>
                             </tbody>
                         </table>
-                        <!-- Pagination for Users -->
+                  
                         <div class="pagination">
                             <%
                                 if (request.getAttribute("currentUserPage") != null && request.getAttribute("totalUserPages") != null) {
@@ -305,7 +297,7 @@
                                 <% } %>
                             </tbody>
                         </table>
-                        <!-- Pagination for Products -->
+                    
                         <div class="pagination">
                             <%
                                 if (request.getAttribute("currentProductPage") != null && request.getAttribute("totalProductPages") != null) {
@@ -338,17 +330,13 @@
             </div>
         </div>
 
-        <!-- Notification -->
         <div class="notification">
             <span>Product has been successfully added!</span>
         </div>
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                // Xóa phần lọc trạng thái phía client-side
-                // Lọc theo trạng thái giờ được xử lý phía server
-
-                // Sắp xếp theo ngày (nếu cần, bạn có thể chuyển sang server-side tương tự)
+               
                 document.getElementById("sort-date").addEventListener("click", function () {
                     const tableBody = document.getElementById("order-table-body");
                     const rows = Array.from(tableBody.getElementsByTagName("tr"));

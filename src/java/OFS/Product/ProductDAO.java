@@ -69,25 +69,7 @@ public class ProductDAO extends DBContext {
         return null;
     }
 
-//    public ProductVariant getProductVariantById(int id) {
-//        String sql = "select * from product_variants where variant_id = ?";
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setInt(1, id);
-//            ResultSet rs = st.executeQuery();
-//            if (rs.next()) {
-//                LocalDateTime createdAt = rs.getTimestamp("created_at").toLocalDateTime();
-//                int productId = rs.getInt("product_id");
-//                Product p = getProductById(productId);
-//                ProductVariant pv = new ProductVariant(rs.getInt("variantId"), p, rs.getString("size"), rs.getString("color"), 
-//                        rs.getBigDecimal("price"), rs.getInt("stock_quantity"), createdAt);
-//                return pv;
-//            }
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//        return null;
-//    }
+
     public ProductVariant getProductVariantById(int id) {
         String sql = "SELECT pv.*, p.*, c.* FROM product_variants pv "
                 + "JOIN products p ON pv.product_id = p.product_id "
@@ -296,64 +278,7 @@ public class ProductDAO extends DBContext {
         return reviews;
     }
 
-//    public List<Product> searchProducts(String keyword) {
-//        List<Product> products = new ArrayList<>();
-//        String sql = "SELECT p.product_id, p.name, p.description, p.base_price, "
-//                + "p.brand, p.material, p.created_at, "
-//                + "c.category_id, c.name AS category_name, c.description AS category_description, "
-//                + "c.created_at AS category_created_at, c.image_url " // 🔥 Đổi imageUrl → image_url
-//                + "FROM products p "
-//                + "LEFT JOIN categories c ON p.category_id = c.category_id "
-//                + "WHERE LOWER(p.name) LIKE ? "
-//                + "   OR LOWER(p.brand) LIKE ? "
-//                + "   OR LOWER(p.description) LIKE ? "
-//                + "   OR LOWER(c.name) LIKE ?";  // 🔥 Tìm kiếm theo category_name
-//
-//        try (PreparedStatement st = connection.prepareStatement(sql)) {
-//            String searchKeyword = "%" + keyword.toLowerCase() + "%";
-//            for (int i = 1; i <= 4; i++) {
-//                st.setString(i, searchKeyword);
-//            }
-//
-//            try (ResultSet rs = st.executeQuery()) {
-//                while (rs.next()) {
-//                    // Kiểm tra NULL trước khi gọi toLocalDateTime()
-//                    Timestamp categoryTimestamp = rs.getTimestamp("category_created_at");
-//                    LocalDateTime categoryCreatedAt = (categoryTimestamp != null) ? categoryTimestamp.toLocalDateTime() : null;
-//
-//                    // Tạo đối tượng CategoryDTO
-//                    CategoryDTO category = new CategoryDTO(
-//                            rs.getInt("category_id"),
-//                            rs.getString("category_name"),
-//                            rs.getString("category_description"),
-//                            categoryCreatedAt,
-//                            rs.getString("image_url") // 🔥 Đổi imageUrl → image_url
-//                    );
-//
-//                    // Kiểm tra NULL cho product timestamp
-//                    Timestamp productTimestamp = rs.getTimestamp("created_at");
-//                    LocalDateTime productCreatedAt = (productTimestamp != null) ? productTimestamp.toLocalDateTime() : null;
-//
-//                    // Tạo đối tượng Product
-//                    Product product = new Product(
-//                            rs.getInt("product_id"),
-//                            rs.getString("name"),
-//                            rs.getString("description"),
-//                            rs.getBigDecimal("base_price"),
-//                            category,
-//                            rs.getString("brand"),
-//                            rs.getString("material"),
-//                            productCreatedAt
-//                    );
-//
-//                    products.add(product);
-//                }
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace(); // Thay thế bằng logging nếu cần
-//        }
-//        return products;
-//    }
+
     public List<Product> searchProducts(String keyword) {
         List<Product> products = new ArrayList<>();
         String sql = "SELECT p.product_id, p.name, p.description, p.base_price, "
@@ -426,8 +351,7 @@ public class ProductDAO extends DBContext {
     public List<Product> getProductsWithPagination(int offset, int limit, String sort) throws Exception {
         List<Product> productList = new ArrayList<>();
 
-        // Xác định kiểu sắp xếp
-        String orderBy = "p.product_id"; // Mặc định theo product_id
+        String orderBy = "p.product_id"; 
         switch (sort.toLowerCase()) {
             case "asc":
                 orderBy = "p.base_price ASC";
@@ -443,7 +367,7 @@ public class ProductDAO extends DBContext {
                 break;
             case "none":
             default:
-                orderBy = "p.product_id"; // Không sắp xếp, giữ mặc định
+                orderBy = "p.product_id"; 
                 break;
         }
 
@@ -497,11 +421,10 @@ public class ProductDAO extends DBContext {
     public List<ProductVariant> getProductVariantsByProductId(int productId) throws Exception {
         List<ProductVariant> variants = new ArrayList<>();
 
-        // Kiểm tra product trước
         Product product = getProductById(productId);
         if (product == null) {
             System.out.println("Product not found for ID: " + productId);
-            return variants; // Trả về danh sách rỗng thay vì gây lỗi
+            return variants; 
         }
 
         String sql = "SELECT variant_id, size, color, price, stock_quantity, created_at FROM product_variants WHERE product_id = ?";
@@ -559,7 +482,7 @@ public class ProductDAO extends DBContext {
                     }
                 }
             }
-            return -1; // Trả về -1 nếu không thêm được
+            return -1; 
         } catch (SQLException e) {
             e.printStackTrace();
             return -1;
@@ -588,12 +511,12 @@ public class ProductDAO extends DBContext {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return -1; // Trả về -1 nếu có lỗi
+        return -1;
     }
 
     public List<Product> getProductsByCategoryWithPagination(String categoryName, int offset, int limit, String sort) throws Exception {
         List<Product> productList = new ArrayList<>();
-        String orderBy = "p.product_id"; // Default sort by product_id
+        String orderBy = "p.product_id"; 
 
         if ("asc".equalsIgnoreCase(sort)) {
             orderBy = "p.base_price ASC";
@@ -677,7 +600,7 @@ public class ProductDAO extends DBContext {
                 }
             }
         }
-        return 0; // Trả về 0 nếu không có sản phẩm nào
+        return 0; 
     }
 
     public int getTotalProductsByCategory(int categoryId) throws Exception {
@@ -704,7 +627,7 @@ public class ProductDAO extends DBContext {
                 }
             }
         }
-        return -1; // Nếu không tìm thấy
+        return -1; 
     }
 
     public boolean updateProduct(Product updatedProduct) throws SQLException {
@@ -733,11 +656,11 @@ public class ProductDAO extends DBContext {
             ps.setInt(1, productId);
             int rowsAffected = ps.executeUpdate();
 
-            return rowsAffected > 0; // Nếu có ít nhất 1 dòng bị ảnh hưởng, trả về true
+            return rowsAffected > 0; 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false; // Nếu có lỗi xảy ra, trả về false
+        return false; 
     }
 
     public Product getProductImagesById(int productId) {
@@ -755,11 +678,10 @@ public class ProductDAO extends DBContext {
                     product.setProductId(rs.getInt("product_id"));
                     product.setName(rs.getString("name"));
 
-                    // Xử lý hình ảnh sản phẩm
                     ProductImages productImage = new ProductImages();
                     productImage.setImageUrl(rs.getString("image_url"));
 
-                    product.setProductImage(productImage); // Gán hình ảnh vào Product
+                    product.setProductImage(productImage); 
 
                     return product;
                 }
@@ -776,11 +698,11 @@ public class ProductDAO extends DBContext {
                 + "WHERE variant_id = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            // Kiểm tra giá trị hợp lệ
+           
             if (size == null || size.trim().isEmpty()
                     || color == null || color.trim().isEmpty()
                     || price == null || stockQuantity < 0) {
-                return false; // Không cập nhật nếu dữ liệu không hợp lệ
+                return false; 
             }
 
             ps.setString(1, size);
@@ -789,7 +711,7 @@ public class ProductDAO extends DBContext {
             ps.setInt(4, stockQuantity);
             ps.setInt(5, variantId);
 
-            return ps.executeUpdate() > 0; // Trả về true nếu cập nhật thành công
+            return ps.executeUpdate() > 0; 
         } catch (SQLException e) {
 
         }
@@ -801,7 +723,7 @@ public class ProductDAO extends DBContext {
         String sql = "DELETE FROM product_variants WHERE variant_id = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, variantId);
-            return ps.executeUpdate() > 0; // Trả về true nếu xóa thành công
+            return ps.executeUpdate() > 0; 
         }
     }
 
@@ -814,7 +736,7 @@ public class ProductDAO extends DBContext {
             if (rs.next()) {
                 return new ProductVariant(
                         rs.getInt("variant_id"),
-                        new Product(rs.getInt("product_id")), // Lấy productId từ database
+                        new Product(rs.getInt("product_id")), 
                         rs.getString("size"),
                         rs.getString("color"),
                         rs.getBigDecimal("price"),
@@ -823,7 +745,7 @@ public class ProductDAO extends DBContext {
                 );
             }
         }
-        return null; // Trả về null nếu không tìm thấy
+        return null; 
     }
 
     public List<Product> searchProductsWithPagination(String keyword, int offset, int limit) {
@@ -921,16 +843,15 @@ public class ProductDAO extends DBContext {
                 }
             }
         }
-        return -1; // Trả về -1 nếu không tìm thấy biến thể
+        return -1; 
     }
 
-// Cập nhật stock_quantity của một biến thể
     public boolean updateStockQuantity(int variantId, int newQuantity) throws SQLException {
         String sql = "UPDATE product_variants SET stock_quantity = ? WHERE variant_id = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, newQuantity);
             ps.setInt(2, variantId);
-            return ps.executeUpdate() > 0; // Trả về true nếu cập nhật thành công
+            return ps.executeUpdate() > 0; 
         }
     }
 

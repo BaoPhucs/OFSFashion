@@ -79,7 +79,6 @@ public class ForgotPasswordController extends HttpServlet {
         String phone = request.getParameter("phone");
         UsersDAO dao = new UsersDAO();
 
-        // Kiểm tra email, dob, và phone trong database
         UsersDTO user = dao.verifyUserForReset(email, dob, phone);
         if (user == null) {
             request.setAttribute("error", "Email, Date of Birth, or Phone Number do not match our records!");
@@ -87,7 +86,6 @@ public class ForgotPasswordController extends HttpServlet {
             return;
         }
 
-        // Chuyển hướng đến trang đặt lại mật khẩu
         response.sendRedirect("resetpassword.jsp?email=" + email);
     }
 

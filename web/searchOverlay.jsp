@@ -176,7 +176,7 @@
             }
 
             .product-wishlist-icon.filled svg {
-                fill: #ff0000; /* Màu đỏ khi sản phẩm đã trong wishlist */
+                fill: #ff0000; 
                 stroke: #ff0000;
             }
 
@@ -352,7 +352,6 @@
             }
 
             function toggleWishlist(element) {
-                // Toggle class 'filled' để thay đổi màu trái tim ngay lập tức
                 element.classList.toggle('filled');
             }
         </script>

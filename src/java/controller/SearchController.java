@@ -42,7 +42,7 @@ public class SearchController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
                 request.setAttribute("errorMessage", "Có lỗi xảy ra khi tìm kiếm sản phẩm: " + e.getMessage());
-                products = new ArrayList<>(); // Đảm bảo products không null
+                products = new ArrayList<>(); 
             }
         } else {
             try {
@@ -58,7 +58,7 @@ public class SearchController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
                 request.setAttribute("errorMessage", "Không thể lấy danh sách sản phẩm mới nhất: " + e.getMessage());
-                products = new ArrayList<>(); // Đảm bảo products không null
+                products = new ArrayList<>(); 
             }
         }
 

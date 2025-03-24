@@ -15,18 +15,18 @@
 </head>
 <body>
     <div class="dashboard">
-        <!-- Sidebar -->
+    
         <%@include file="dashBoardHeader.jsp"%>
 
-        <!-- Main Content -->
+     
         <div class="main-content">
-            <!-- Header -->
+        
             <div class="header">
                 <div class="search-bar">
                     <form action="UserMgtController" method="GET">
                         <input type="text" name="keyword" placeholder="Search users..." value="${param.keyword}">
                         <button type="submit">Search</button>
-                        <!-- Thêm nút "Clear Search" -->
+               
                         <a href="UserMgtController" class="clear-search-btn">Clear Search</a>
                     </form>
                 </div>
@@ -36,19 +36,19 @@
                 </div>
             </div>
 
-            <!-- Content -->
+      
             <div class="content">
                 <h1>User Management</h1>
-                <!-- Hi?n th? thông báo n?u có t? khóa tìm ki?m -->
+              
                 <% if (request.getParameter("keyword") != null && !request.getParameter("keyword").trim().isEmpty()) { %>
                     <p>Search results for: "<%= request.getParameter("keyword") %>"</p>
                 <% } %>
 
-                <!-- Quick Actions -->
+           
                 <div class="quick-actions">
                     <a href="addUser.jsp" class="add-user-btn">Add User</a>
                     <form method="get" action="UserMgtController">
-                        <!-- B? l?c vai trò -->
+               
                         <label for="role">Role:</label>
                         <select name="role" id="role" class="filter-role">
                             <option value="all" <%= "all".equals(request.getParameter("role")) ? "selected" : ""%>>All Roles</option>
@@ -56,7 +56,7 @@
                             <option value="customer" <%= "customer".equals(request.getParameter("role")) ? "selected" : ""%>>Customer</option>
                         </select>
 
-                        <!-- S?p x?p theo -->
+                
                         <label for="sort">Sort by:</label>
                         <select name="sort" id="sort" class="sort-name">
                             <option value="none" <%= (request.getParameter("sort") == null || "none".equals(request.getParameter("sort"))) ? "selected" : ""%>>Default (User ID)</option>
@@ -66,13 +66,13 @@
                             <option value="date_desc" <%= "date_desc".equals(request.getParameter("sort")) ? "selected" : ""%>>Date Created: Newest First</option>
                         </select>
 
-                        <!-- Gi? t? khóa tìm ki?m trong form l?c -->
+             
                         <input type="hidden" name="keyword" value="${param.keyword}">
                         <button type="submit">Apply</button>
                     </form>
                 </div>
 
-                <!-- Table Section -->
+       
                 <div class="table-section">
                     <table class="table table-bordered">
                         <thead class="thead-dark">
@@ -128,7 +128,7 @@
                         </tbody>
                     </table>
 
-                    <!-- Pagination -->
+                   
                     <div class="pagination">
                         <%
                             if (request.getAttribute("currentPage") != null && request.getAttribute("totalPages") != null) {
@@ -158,7 +158,7 @@
         </div>
     </div>
 
-    <!-- User Details Modal -->
+
     <div class="modal" id="userDetailsModal">
         <div class="modal-content">
             <span class="close">×</span>
@@ -174,7 +174,7 @@
         </div>
     </div>
 
-    <!-- Notification -->
+
     <div class="notification">
         <span>User has been updated successfully!</span>
     </div>
@@ -206,7 +206,7 @@
             });
         });
 
-        // Sample data for user details
+   
         const users = {
             1: {
                 name: "John Doe",
@@ -231,7 +231,7 @@
             }
         };
 
-        // Modal functionality
+ 
         const modal = document.getElementById('userDetailsModal');
         const closeModal = document.querySelector('.close');
         const viewButtons = document.querySelectorAll('.view-btn');
@@ -263,7 +263,7 @@
             }
         });
 
-        // Show notification
+
         function showNotification(message) {
             const notification = document.querySelector('.notification');
             notification.querySelector('span').textContent = message;

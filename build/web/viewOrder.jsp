@@ -20,8 +20,8 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-            color: #333; /* Màu chữ tối nhẹ */
+            background-color: #f7f9fc; 
+            color: #333; 
             padding: 20px;
         }
 
@@ -31,7 +31,7 @@
             font-weight: 500;
             margin-bottom: 25px;
             color: #2c3e50;
-            text-align: left; /* Căn trái */
+            text-align: left; 
         }
 
         h3 {
@@ -39,17 +39,17 @@
             font-weight: 500;
             margin: 20px 0;
             color: #2c3e50;
-            text-align: left; /* Căn trái */
+            text-align: left; 
         }
 
         /* Thông tin đơn hàng */
         div:not([class]) {
             background-color: #f5f6fa;
-            padding: 20px 40px; /* Tăng padding trái và phải để đưa nội dung vào trong */
+            padding: 20px 40px;
             border-radius: 8px;
             margin-bottom: 20px;
-            max-width: 600px; /* Giới hạn chiều rộng */
-            margin-left: 0; /* Căn sát lề trái */
+            max-width: 600px; 
+            margin-left: 0;
         }
 
         div:not([class]) p {
@@ -68,7 +68,7 @@
         /* Thông báo lỗi */
         p[style*="color: red"] {
             color: #dc3545 !important;
-            text-align: left; /* Căn trái */
+            text-align: left; 
             font-size: 16px;
             margin-top: 20px;
         }
@@ -76,8 +76,8 @@
         /* Bảng */
         table {
             width: 100%;
-            max-width: 800px; /* Giới hạn chiều rộng bảng */
-            margin-left: 0; /* Căn sát lề trái */
+            max-width: 800px; 
+            margin-left: 0; 
             border-collapse: collapse;
             background-color: #ffffff;
             border-radius: 10px;
@@ -94,7 +94,7 @@
             font-weight: 500;
             color: #7f8c8d;
             font-size: 14px;
-            text-transform: uppercase; /* Chữ in hoa cho tiêu đề */
+            text-transform: uppercase; 
         }
 
         table td {
@@ -103,18 +103,18 @@
         }
 
         table tr:hover {
-            background-color: #f5f6fa; /* Màu nền khi hover */
+            background-color: #f5f6fa; 
         }
 
         /* Liên kết Back to Orders */
         a {
             display: inline-block;
-            margin: 20px 0 0 0; /* Căn sát lề trái */
+            margin: 20px 0 0 0; 
             padding: 10px 20px;
-            background-color: #f5f5f5; /* Màu nền xám nhạt */
-            color: #333; /* Màu chữ đen */
-            border: 1px solid #dfe6e9; /* Viền nhẹ */
-            border-radius: 8px; /* Bo tròn */
+            background-color: #f5f5f5; 
+            color: #333; 
+            border: 1px solid #dfe6e9; 
+            border-radius: 8px; 
             font-family: 'Roboto', sans-serif;
             font-size: 14px;
             font-weight: 500;
@@ -126,13 +126,13 @@
         }
 
         a:hover {
-            background-color: #e5e5e5; /* Màu xám đậm hơn khi hover */
+            background-color: #e5e5e5;
         }
 
         /* Thiết kế responsive */
         @media (max-width: 768px) {
             div:not([class]) {
-                padding: 15px 20px; /* Giảm padding trên thiết bị di động */
+                padding: 15px 20px; 
             }
 
             table {

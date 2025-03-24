@@ -107,11 +107,10 @@
             .delivery-address {
                 margin-left: 20px;
             }
-            /* Ch?nh s?a k?ch th??c b?c ?nh */
             .credit-card-image {
                 margin-top: 10px;
-                display: none; /* ?n m?c ??nh */
-                width: 60px; /* K?ch th??c t??ng t? ?nh trong order-summary */
+                display: none; 
+                width: 60px; 
                 height: auto;
             }
         </style>
@@ -183,14 +182,11 @@
         </form>
         <%@include file="footer.jsp" %>
 
-        <!-- JavaScript ?? x? l? hi?n th?/?n b?c ?nh -->
         <script>
-            // L?y c?c radio button
             const creditCardRadio = document.querySelector('input[name="payment"][value="credit"]');
             const codRadio = document.querySelector('input[name="payment"][value="cod"]');
             const creditCardImage = document.getElementById('creditCardImage');
 
-            // H?m ki?m tra v? hi?n th?/?n b?c ?nh
             function toggleCreditCardImage() {
                 if (creditCardRadio.checked) {
                     creditCardImage.style.display = 'block';
@@ -199,10 +195,8 @@
                 }
             }
 
-            // G?i h?m khi trang ???c t?i (?? x? l? tr?ng th?i ban ??u)
             toggleCreditCardImage();
 
-            // L?ng nghe s? ki?n thay ??i tr?n c?c radio button
             creditCardRadio.addEventListener('change', toggleCreditCardImage);
             codRadio.addEventListener('change', toggleCreditCardImage);
         </script>

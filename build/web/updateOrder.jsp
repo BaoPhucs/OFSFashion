@@ -27,8 +27,8 @@
             body {
                 margin: 0;
                 font-family: 'Roboto', sans-serif;
-                background-color: #f7f9fc; /* Màu nền nhẹ nhàng */
-                color: #333; /* Màu chữ tối nhẹ */
+                background-color: #f7f9fc; 
+                color: #333; 
                 padding: 20px;
             }
 
@@ -38,13 +38,13 @@
                 font-weight: 500;
                 margin-bottom: 25px;
                 color: #2c3e50;
-                text-align: left; /* Căn trái */
+                text-align: left; 
             }
 
             /* Form */
             form {
-                max-width: 600px; /* Giới hạn chiều rộng form */
-                margin-left: 0; /* Căn sát lề trái */
+                max-width: 600px; 
+                margin-left: 0;
                 background-color: #ffffff;
                 padding: 20px 40px;
                 border-radius: 8px;
@@ -91,7 +91,7 @@
                 display: inline-block;
                 margin-top: 20px;
                 padding: 10px 20px;
-                background-color: #3498db; /* Màu xanh */
+                background-color: #3498db; 
                 color: #ffffff;
                 border: none;
                 border-radius: 8px;
@@ -105,18 +105,18 @@
             }
 
             button[type="submit"]:hover {
-                background-color: #2980b9; /* Màu xanh đậm hơn khi hover */
+                background-color: #2980b9; 
             }
 
             /* Liên kết Back to Order List */
             a {
                 display: inline-block;
-                margin: 20px 0 0 0; /* Căn sát lề trái */
+                margin: 20px 0 0 0;
                 padding: 10px 20px;
-                background-color: #f5f5f5; /* Màu nền xám nhạt */
-                color: #333; /* Màu chữ đen */
-                border: 1px solid #dfe6e9; /* Viền nhẹ */
-                border-radius: 8px; /* Bo tròn */
+                background-color: #f5f5f5; 
+                color: #333; 
+                border: 1px solid #dfe6e9; 
+                border-radius: 8px; 
                 font-family: 'Roboto', sans-serif;
                 font-size: 14px;
                 font-weight: 500;
@@ -128,13 +128,13 @@
             }
 
             a:hover {
-                background-color: #e5e5e5; /* Màu xám đậm hơn khi hover */
+                background-color: #e5e5e5; 
             }
 
             /* Thiết kế responsive */
             @media (max-width: 768px) {
                 form {
-                    padding: 15px 20px; /* Giảm padding trên thiết bị di động */
+                    padding: 15px 20px; 
                 }
 
                 select {

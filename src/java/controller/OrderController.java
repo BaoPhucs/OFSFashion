@@ -14,10 +14,8 @@ import OFS.Users.UsersDAO;
 import OFS.Users.UsersDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -86,7 +84,7 @@ public class OrderController extends HttpServlet {
         for (Order order : orders) {
             List<OrderItem> items = orderDAO.getOrderItemsByOrderIds(Arrays.asList(order.getOrderId()));
             for (OrderItem item : items) {
-                int productId = item.getVariantId().getProduct().getProductId(); // Lấy productId từ ProductVariant
+                int productId = item.getVariantId().getProduct().getProductId(); 
                 List<ProductImages> images = productDAO.getProductImagesByProductId(productId);
                 if (!images.isEmpty()) {
                     request.setAttribute("firstImage_" + productId, images.get(0).getImageUrl());
@@ -121,7 +119,7 @@ public class OrderController extends HttpServlet {
             for (Order order : orders) {
                 List<OrderItem> items = orderDAO.getOrderItemsByOrderIds(Arrays.asList(order.getOrderId()));
                 for (OrderItem item : items) {
-                    int productId = item.getVariantId().getProduct().getProductId(); // Lấy productId từ ProductVariant
+                    int productId = item.getVariantId().getProduct().getProductId(); 
                     List<ProductImages> images = productDAO.getProductImagesByProductId(productId);
                     if (!images.isEmpty()) {
                         request.setAttribute("firstImage_" + productId, images.get(0).getImageUrl());

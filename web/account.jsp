@@ -137,7 +137,7 @@
             }
 
             .dashboard-link {
-                right: 120px; /* Đặt bên trái của nút Logout */
+                right: 120px; 
             }
 
             .logout {

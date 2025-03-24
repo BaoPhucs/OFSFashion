@@ -167,7 +167,7 @@
                 }
             %>
 
-            <!-- Processing Orders Section -->
+        
             <% if (processingOrders.isEmpty()) { %>
             <div class="section-title">Processing Orders</div>
             <p class="no-orders">No processing orders at the moment.</p>
@@ -195,7 +195,7 @@
             </table>
             <% } %>
 
-            <!-- Order History Section (Delivered Orders) -->
+
             <% if (deliveredOrders.isEmpty()) { %>
             <div class="section-title">Order History</div>
             <p class="no-orders">No delivered orders in your history.</p>

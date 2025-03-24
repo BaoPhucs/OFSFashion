@@ -27,19 +27,14 @@ public class ReviewDAO extends DBContext {
 
     private OrderDAO orderDAO = new OrderDAO();
 
-    /**
-     * Kiểm tra xem người dùng có thể viết đánh giá cho sản phẩm không. Điều
-     * kiện: Người dùng đã mua sản phẩm trong một đơn hàng "Delivered" và chưa
-     * đánh giá sản phẩm đó.
-     */
+    
     public boolean canUserReview(int userId, int productId) {
-        // Lấy tất cả đơn hàng của người dùng
+       
         List<Order> orders = orderDAO.getOrdersByUserId(userId);
         if (orders == null || orders.isEmpty()) {
             return false;
         }
 
-        // Lọc các đơn hàng có trạng thái "Delivered"
         List<Order> deliveredOrders = orders.stream()
                 .filter(order -> "Delivered".equalsIgnoreCase(order.getOrderStatus()))
                 .collect(Collectors.toList());
@@ -48,21 +43,18 @@ public class ReviewDAO extends DBContext {
             return false;
         }
 
-        // Lấy danh sách orderId từ các đơn hàng Delivered
         List<Integer> deliveredOrderIds = deliveredOrders.stream()
                 .map(Order::getOrderId)
                 .collect(Collectors.toList());
 
-        // Lấy chi tiết đơn hàng
         List<OrderItem> orderItems = orderDAO.getOrderItemsByOrderIds(deliveredOrderIds);
         if (orderItems == null || orderItems.isEmpty()) {
             return false;
         }
 
-        // Kiểm tra xem người dùng đã mua sản phẩm này trong đơn hàng Delivered chưa
         for (OrderItem item : orderItems) {
             if (item.getVariantId().getProduct().getProductId() == productId) {
-                // Kiểm tra xem người dùng đã đánh giá sản phẩm này chưa
+          
                 if (!hasUserReviewedProduct(userId, productId)) {
                     return true;
                 }
@@ -71,9 +63,6 @@ public class ReviewDAO extends DBContext {
         return false;
     }
 
-    /**
-     * Kiểm tra xem người dùng đã viết đánh giá cho sản phẩm này chưa.
-     */
     private boolean hasUserReviewedProduct(int userId, int productId) {
         String sql = "SELECT COUNT(*) FROM reviews WHERE user_id = ? AND product_id = ?";
         try (PreparedStatement st = connection.prepareStatement(sql)) {
@@ -90,15 +79,13 @@ public class ReviewDAO extends DBContext {
         return false;
     }
 
-    /**
-     * Thêm một đánh giá mới.
-     */
+   
     public boolean addReview(ReviewDTO review) {
         String sql = "INSERT INTO reviews (user_id, product_id, rating, comment, created_at) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement st = connection.prepareStatement(sql)) {
             st.setInt(1, review.getUser().getUserId());
             st.setInt(2, review.getProduct().getProductId());
-            st.setInt(3, review.getRating()); // Đảm bảo rating được lưu đúng
+            st.setInt(3, review.getRating()); 
             st.setString(4, review.getComment());
             st.setTimestamp(5, Timestamp.valueOf(review.getCreatedAt()));
 
@@ -111,10 +98,6 @@ public class ReviewDAO extends DBContext {
         return false;
     }
 
-    /**
-     * Lấy danh sách đánh giá cho sản phẩm (tối ưu từ ProductDAO nếu cần).
-     * Phương thức này có thể được gọi lại nếu bạn muốn tích hợp thêm logic.
-     */
     public List<ReviewDTO> getReviewsByProductId(int productId) {
         List<ReviewDTO> reviews = new ArrayList<>();
         String sql = "SELECT r.review_id, r.user_id, r.product_id, r.rating, r.comment, r.created_at, "

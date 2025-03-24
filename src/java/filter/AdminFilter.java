@@ -113,11 +113,9 @@ public class AdminFilter implements Filter {
         Throwable problem = null;
         try {
             chain.doFilter(request, response);
-            // Chuyển đổi request và response thành HttpServletRequest và HttpServletResponse
             HttpServletRequest httpRequest = (HttpServletRequest) request;
             HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-            // Chỉ xử lý chuyển hướng nếu là request POST (tức là sau khi đăng nhập)
             if ("POST".equalsIgnoreCase(httpRequest.getMethod())) {
                 HttpSession session = httpRequest.getSession(false);
                 if (session != null) {
@@ -125,10 +123,8 @@ public class AdminFilter implements Filter {
                     if (user != null) {
                         String userType = user.getUserType();
                         if ("admin".equalsIgnoreCase(userType)) {
-                            // Nếu là admin, chuyển hướng đến DashBoardController
                             httpResponse.sendRedirect(httpRequest.getContextPath() + "/DashBoardController");
                         } else {
-                            // Nếu không phải admin (ví dụ: customer), chuyển hướng đến trang account
                             httpResponse.sendRedirect(httpRequest.getContextPath() + "/account");
                         }
                     }

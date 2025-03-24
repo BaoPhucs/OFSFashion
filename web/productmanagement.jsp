@@ -16,12 +16,12 @@
     </head>
     <body>
         <div class="dashboard">
-            <!-- Sidebar -->
+            
             <%@include file="dashBoardHeader.jsp" %>
 
-            <!-- Main Content -->
+           
             <div class="main-content">
-                <!-- Header -->
+               
                 <div class="header">
                     <div class="search-bar">
                         <form action="ProductMgtController" method="get">
@@ -37,10 +37,10 @@
                     </div>
                 </div>
 
-                <!-- Content -->
+                
                 <div class="content">
                     <h1>Product Management</h1>
-                    <!-- Quick Actions -->
+                    
                     <div class="quick-actions">
                         <form action="addCategory.jsp" method="get">
                             <input type="submit" value="Add Product">
@@ -75,7 +75,7 @@
                     <p>Search results for: "<%= request.getParameter("keyword")%>"</p>
                     <% } %>
 
-                    <!-- Table Section -->
+                    
                     <div class="table-section">
                         <table border="1">
                             <thead>
@@ -190,7 +190,7 @@
         </div>
 
         <script>
-            // Sample functions for actions
+            
             function viewProduct(productId) {
                 alert(`Viewing product details for ID: ${productId}`);
             }
@@ -203,7 +203,7 @@
                 alert(`Deleting product with ID: ${productId}`);
             }
 
-            // Variants Modal
+            
             const modal = document.getElementById('variantsModal');
             const closeModal = document.querySelector('.close');
             const viewVariantsButtons = document.querySelectorAll('.view-variants-btn');
@@ -228,7 +228,7 @@
                 }
             });
 
-            // Attach event listeners
+            
             document.querySelectorAll('.view-btn').forEach(button => {
                 button.addEventListener('click', () => viewProduct(button.closest('tr').querySelector('td').textContent));
             });
