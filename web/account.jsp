@@ -300,7 +300,7 @@
                     <p class="error-message" style="color: red">${requestScope.error}</p>
                 </c:if>
 
-                <!-- Hiển thị nút "Go to Dashboard" nếu userType là admin -->
+                <!-- Hiển thị nút "Go to Dashboard" nếu userType admin -->
                 <c:if test="${sessionScope.account.userType == 'admin'}">
                     <a class="dashboard-link" href="DashBoardController">Go to Dashboard</a>
                 </c:if>
